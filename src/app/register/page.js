@@ -147,7 +147,7 @@ export default function RegisterPage() {
 
                   <Select
                     label={labels.bloodGroup}
-                    name="bloodGroup"
+                    name="blood_group"
                     register={register}
                     errors={errors}
                     options={bloodGroups}
@@ -203,8 +203,15 @@ export default function RegisterPage() {
                     name="aadhaar"
                     register={register}
                     errors={errors}
+                    required
                     maxLength={12}
                     placeholder="12 digit Aadhaar"
+                    validation={{
+                      pattern: {
+                        value: /^\d{12}$/,
+                        message: "Aadhaar number must be exactly 12 digits",
+                      },
+                    }}
                   />
                 </div>
 
