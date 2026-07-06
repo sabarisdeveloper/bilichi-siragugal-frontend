@@ -9,6 +9,7 @@ export default function Input({
   maxLength,
   disabled = false,
   readOnly = false,
+  validation = {},
   onChange,
 }) {
   return (
@@ -33,6 +34,7 @@ export default function Input({
         readOnly={readOnly}
         {...register(name, {
           required: required ? `${label.subLabel} is required` : false,
+          ...validation,
           onChange,
         })}
         className={`w-full rounded-lg border px-4 py-3 ${
